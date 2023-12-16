@@ -1,10 +1,10 @@
 import api from './axiosInstance';
 
 class CategoryDAO {
-    async getCategoryById(productId) {
-        console.log('Get category by id : ' + productId);
+    async getCategoryById(categoryId) {
+        console.log('Get category by id : ' + categoryId);
         try {
-            const response = await api.get('/Categories/' + productId);
+            const response = await api.get('/Categories/' + categoryId);
             return response.data.name;
         } catch (error) {
             console.error('Error fetching category: ', error.toString());
