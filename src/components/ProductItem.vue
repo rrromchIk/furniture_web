@@ -1,7 +1,7 @@
 <script>
 export default {
   name: "ProductItem",
-  props: ["name", "description", "category", "price", "stockQuantity", "id", "buttonText"],
+  props: ["name", "description", "category", "price", "stockQuantity", "productId", "buttonText"],
 
   methods: {
 

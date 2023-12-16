@@ -27,8 +27,8 @@
 
       <ProductItem
           v-for="product in products"
-          button-text="+"
           :key="product.productId"
+          button-text="+"
           v-bind="product"/>
       </tbody>
     </table>
@@ -41,6 +41,7 @@ import productDAO from "@/services/productDAO";
 import categoryDAO from "@/services/categoryDAO";
 
 export default {
+  name: "ProductListComponent",
   components: {
     ProductItem
   },
