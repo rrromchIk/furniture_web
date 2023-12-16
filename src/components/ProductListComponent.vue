@@ -4,22 +4,22 @@
       <thead>
       <tr>
         <th>
-          <button @click="sortColumn('name')">Product Name</button>
+          <button @click="sortBy('name')">Product Name</button>
         </th>
         <th>
-          <button @click="sortColumn('description')">Product Description</button>
+          <button @click="sortBy('description')">Product Description</button>
         </th>
         <th>
-          <button @click="sortColumn('category')">Category Name</button>
+          <button @click="sortBy('category')">Category Name</button>
         </th>
         <th>
-          <button @click="sortColumn('price')">Price</button>
+          <button @click="sortBy('price')">Price</button>
         </th>
         <th>
-          <button @click="sortColumn('quantity')">Quantity</button>
+          <button @click="sortBy('quantity')">Quantity</button>
         </th>
         <th>
-          <button @click="sortColumn('quantity')">Add to Bucket</button>
+          <button>Add to Bucket</button>
         </th>
       </tr>
       </thead>
@@ -47,24 +47,7 @@ export default {
   data() {
     return {
       products: [],
-      sortKey: '',
-      sortOrder: 1,
     };
-  },
-  computed: {
-    sortedProducts() {
-      const key = this.sortKey;
-      const order = this.sortOrder;
-
-      return this.products.slice().sort((a, b) => {
-        const valA = a[key];
-        const valB = b[key];
-
-        if (valA < valB) return -order;
-        if (valA > valB) return order;
-        return 0;
-      });
-    },
   },
   methods: {
     async fetchCategory(product) {
@@ -76,19 +59,22 @@ export default {
       await this.products.forEach(p => this.fetchCategory(p));
     },
 
-    sortColumn(key) {
-      if (this.sortKey === key) {
-        this.sortOrder *= -1; // Toggle between ascending and descending
-      } else {
-        this.sortKey = key;
-        this.sortOrder = 1; // Default to ascending order
-      }
-    },
-    handleSearch(searchTerm) {
-      // Filter products based on the search term
-      this.filteredProducts = this.products.filter(product =>
-          product.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+    sortBy(criteria) {
+      console.log("Sorting products by: " + criteria);
+
+      this.products.sort((a, b) => {
+        if (criteria === 'name') {
+          return a.name.localeCompare(b.name);
+        } else if (criteria === 'description') {
+          return a.description.localeCompare(b.description);
+        } else if (criteria === 'category') {
+          return a.description.localeCompare(b.description);
+        } else if (criteria === 'price') {
+          return a.price - b.price;
+        }else if (criteria === 'quantity') {
+          return a.stockQuantity - b.stockQuantity;
+        }
+      });
     },
   },
   async created() {
