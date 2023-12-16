@@ -2,17 +2,16 @@
 
 <template>
   <header class="header">
-    <h1>{{ storeName }}</h1>
+    <ul>
+    <li><router-link to="/products">Furniture Land</router-link></li>
+    <li><router-link to="/bucket">Bucket</router-link></li>
+  </ul>
   </header>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      storeName: 'Furniture Land',
-    };
-  },
+  name: "HeaderComponent"
 };
 </script>
 
@@ -27,6 +26,15 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
+  display: flex;
+  justify-content: center;
 }
+.header ul {
+display: flex;
+flex-direction: row;
+gap: 15px;
+  
+}
+
 </style>
   

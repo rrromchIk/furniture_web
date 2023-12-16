@@ -87,10 +87,13 @@ export default {
 .product-list {
   margin: 20px auto;
   width: 1250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 table {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   border-collapse: collapse;
 }
