@@ -24,25 +24,25 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="product in products" :key="product.id">
-        <td>{{ product.name }}</td>
-        <td>{{ product.description }}</td>
-        <td>{{ product.category }}</td>
-        <td>${{ product.price }}</td>
-        <td>{{ product.stockQuantity }}</td>
-      </tr>
+
+      <ProductItem
+          v-for="product in products"
+          button-text="+"
+          :key="product.productId"
+          v-bind="product"/>
       </tbody>
     </table>
   </div>
 </template>
 
 <script>
+import ProductItem from "@/components/ProductItem.vue";
 import productDAO from "@/services/productDAO";
 import categoryDAO from "@/services/categoryDAO";
 
 export default {
   components: {
-
+    ProductItem
   },
   data() {
     return {
