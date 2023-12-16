@@ -7,7 +7,7 @@ class ProductDAO {
             const response = await api.get('/Products');
             return response.data;
         } catch (error) {
-            console.error('Error fetching players: ', error.toString());
+            console.error('Error fetching products: ', error.toString());
         }
         return [];
     }

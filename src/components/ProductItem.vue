@@ -2,10 +2,10 @@
 export default {
   name: "ProductItem",
   props: ["name", "description", "category", "price", "stockQuantity", "productId", "buttonText"],
-  emits: ["addToBucket"],
+  emits: ["editBucket"],
   methods: {
-    addToBucket(productId) {
-      this.$emit('addToBucket', productId);
+    editBucket(productId, operation) {
+      this.$emit('editBucket', {productId, operation});
     }
   }
 }
@@ -19,7 +19,7 @@ export default {
     <td>${{ price }}</td>
     <td>{{ stockQuantity }}</td>
     <td>
-      <button @click="addToBucket(productId)">{{ buttonText }}</button>
+      <button @click="editBucket(productId, buttonText)">{{ buttonText }}</button>
     </td>
   </tr>
 </template>
