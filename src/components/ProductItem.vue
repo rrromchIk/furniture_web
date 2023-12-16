@@ -2,9 +2,11 @@
 export default {
   name: "ProductItem",
   props: ["name", "description", "category", "price", "stockQuantity", "productId", "buttonText"],
-
+  emits: ["addToBucket"],
   methods: {
-
+    addToBucket(productId) {
+      this.$emit('addToBucket', productId);
+    }
   }
 }
 </script>
@@ -16,7 +18,9 @@ export default {
     <td>{{ category }}</td>
     <td>${{ price }}</td>
     <td>{{ stockQuantity }}</td>
-    <td><button>{{ buttonText }}</button></td>
+    <td>
+      <button @click="addToBucket(productId)">{{ buttonText }}</button>
+    </td>
   </tr>
 </template>
 
@@ -30,5 +34,14 @@ th, td {
 
 th {
   background-color: #f2f2f2;
+}
+
+button {
+  width: 100%;
+  height: 100%;
+}
+
+button:hover {
+  background-color: #dddddd;
 }
 </style>

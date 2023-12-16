@@ -29,7 +29,8 @@
           v-for="product in products"
           :key="product.productId"
           button-text="+"
-          v-bind="product"/>
+          v-bind="product"
+          @add-to-bucket="addToBucketEventHandler"/>
       </tbody>
     </table>
   </div>
@@ -48,6 +49,7 @@ export default {
   data() {
     return {
       products: [],
+      productsAddedToBucket: []
     };
   },
   methods: {
@@ -77,6 +79,9 @@ export default {
         }
       });
     },
+    addToBucketEventHandler(productId) {
+      this.productsAddedToBucket.push(this.products.filter(p => p.productId === productId)[0]);
+    }
   },
   async created() {
     await this.fetchAllProducts();
@@ -88,13 +93,10 @@ export default {
 .product-list {
   margin: 20px auto;
   width: 1250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 table {
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
   border-collapse: collapse;
 }
