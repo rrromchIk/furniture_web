@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     async fetchCategory(product) {
-      product.category = await categoryDAO.getCategoryById(product.productId);
+      product.category = await categoryDAO.getCategoryById(product.categoryId);
     },
 
     async fetchAllProducts() {
@@ -153,4 +153,32 @@ th {
   background-color: #f2f2f2;
 }
 </style>
+<style scoped>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+
+  /* Додаткові стилі можна додати тут */
+</style>
+
   

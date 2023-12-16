@@ -28,11 +28,12 @@ export default {
   left: 0;
   display: flex;
   justify-content: center;
+  font-size: 25px;
 }
 .header ul {
 display: flex;
 flex-direction: row;
-gap: 15px;
+gap: 40px;
   
 }
 

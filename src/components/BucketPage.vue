@@ -3,14 +3,7 @@
       <h1>Your Bucket</h1>
       <table>
         <thead>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Category</th>
-            <th>Price</th>
-            <th>Stock Quantity</th>
-            <th>Action</th>
-          </tr>
+         
         </thead>
         <tbody>
           <ProductItem
@@ -61,10 +54,7 @@ export default {
 }
 </script>
 <style scoped>
-table{
-    display: flex;
-    flex-direction: row;
-}
+
 thead{
     display:flex;
 }
@@ -74,4 +64,36 @@ h1 {
   font-size: 48px;
   margin-top: 3%;
 }
+</style>
+<style scoped>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    text-align: center;
+  }
+
+  td{
+    vertical-align: middle;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+
+  /* Додаткові стилі можна додати тут */
 </style>
