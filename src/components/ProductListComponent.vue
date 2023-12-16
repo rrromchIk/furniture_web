@@ -4,19 +4,19 @@
       <thead>
       <tr>
         <th>
-          <button @click="sortBy('name')">Product Name</button>
+          <button @click="sortBy('name')">Product Name ⇵</button>
         </th>
         <th>
-          <button @click="sortBy('description')">Product Description</button>
+          <button @click="sortBy('description')">Product Description ⇵</button>
         </th>
         <th>
-          <button @click="sortBy('category')">Category Name</button>
+          <button @click="sortBy('category')">Category Name ⇵</button>
         </th>
         <th>
-          <button @click="sortBy('price')">Price</button>
+          <button @click="sortBy('price')">Price ⇵</button>
         </th>
         <th>
-          <button @click="sortBy('quantity')">Quantity</button>
+          <button @click="sortBy('quantity')">Quantity ⇵</button>
         </th>
         <th>
           <button>Add to Bucket</button>
